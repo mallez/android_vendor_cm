@@ -70,7 +70,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false
 
 # Enable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+PRODUCT_PROPERTY_OVERRIDES += ro.adb.secure=0
+PRODUCT_PROPERTY_OVERRIDES += ro.secure=0
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
@@ -147,14 +148,10 @@ PRODUCT_PACKAGES += \
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
-    Trebuchet \
     DSPManager \
     libcyanogen-dsp \
     audio_effects.conf \
-    CMWallpapers \
-    Apollo \
     CMUpdater \
-    CMFileManager \
     LockClock
 
 # Extra tools in CM
@@ -211,7 +208,7 @@ ifdef CM_BUILDTYPE
     endif
 else
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
-    CM_BUILDTYPE := UNOFFICIAL
+    CM_BUILDTYPE := mallez
     CM_EXTRAVERSION :=
 endif
 
@@ -231,3 +228,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 -include $(WORKSPACE)/hudson/image-auto-bits.mk
+
+include vendor/mallez/config/common.mk
+

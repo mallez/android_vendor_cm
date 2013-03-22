@@ -19,3 +19,7 @@ ifeq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
     PRODUCT_COPY_FILES += \
         vendor/cm/prebuilt/common/bootanimation/480.zip:system/media/bootanimation.zip
 endif
+
+
+include vendor/mallez/config/common_full_phone.mk
+
